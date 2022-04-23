@@ -1,0 +1,45 @@
+@import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
+
+:root {
+ 
+  --fw-reg: 400;
+  --fw-bold: 900;
+  
+  --clr-red: #f44336;
+  --clr-blue: #0277bd;
+  --clr-yellow: #fff176;
+  --clr-green: #2e7d32;
+  --clr-background: #212121;
+  
+
+  --bs: 0.25em 0.25em 0.75em rgba(0,0,0,.25),
+        0.125em 0.125em 0.25em rgba(0,0,0,.15);
+}
+
+html{
+  box-sizing: border-box;
+}
+
+body {
+	text-transform: uppercase;
+	background: var(--clr-background);
+	font-family: 'VT323', monospace;
+	color: var(--clr-blue);
+	align-items: center;
+	display: flex;
+	justify-content: center;
+  }
+
+
+h1{
+  font-size: 15em;
+}
+
+h2{
+  font-size: 3em;
+}
+
+p{
+  font-size: 1.3em;
+}
+
