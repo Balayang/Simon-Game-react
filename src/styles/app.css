@@ -1,23 +1,21 @@
 @import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
 
 :root {
- 
-  --fw-reg: 400;
-  --fw-bold: 900;
-  
-  --clr-red: #f44336;
-  --clr-blue: #0277bd;
-  --clr-yellow: #fff176;
-  --clr-green: #2e7d32;
-  --clr-background: #212121;
-  
+	--fw-reg: 400;
+	--fw-bold: 900;
 
-  --bs: 0.25em 0.25em 0.75em rgba(0,0,0,.25),
-        0.125em 0.125em 0.25em rgba(0,0,0,.15);
+	--clr-red: #f44336;
+	--clr-blue: #0277bd;
+	--clr-yellow: #fff176;
+	--clr-green: #2e7d32;
+	--clr-background: #212121;
+
+	--bs: 0.25em 0.25em 0.75em rgba(0, 0, 0, 0.25),
+		0.125em 0.125em 0.25em rgba(0, 0, 0, 0.15);
 }
 
-html{
-  box-sizing: border-box;
+html {
+	box-sizing: border-box;
 }
 
 body {
@@ -28,18 +26,228 @@ body {
 	align-items: center;
 	display: flex;
 	justify-content: center;
-  }
-
-
-h1{
-  font-size: 15em;
 }
 
-h2{
-  font-size: 3em;
+h1 {
+	font-size: 15em;
 }
 
-p{
-  font-size: 1.3em;
+h2 {
+	font-size: 3em;
 }
 
+p {
+	font-size: 1.3em;
+}
+/* Intro */
+.intro {
+	min-height: 100vh;
+	align-items: center;
+	text-align: center;
+}
+
+.btn {
+	margin: 2em 5em;
+	padding: 0.5em 1em;
+	text-align: center;
+	font-size: 2em;
+	font-weight: 800;
+	box-shadow: var(--bs);
+	cursor: pointer;
+	background-color: var(--clr-yellow);
+}
+
+.btn:hover {
+	filter: brightness(110%);
+	transform: scale(1.1);
+}
+
+.btn:active {
+	transform: translate(0, 0.3rem);
+	box-shadow: none;
+}
+
+.title {
+	margin: 0;
+	padding: 0;
+	animation: blinker 2s linear infinite;
+}
+
+@keyframes blinker {
+	0% {
+		color: var(--clr-blue);
+	}
+	33% {
+		color: var(--clr-red);
+	}
+	66% {
+		color: var(--clr-green);
+	}
+	100% {
+		color: var(--clr-yellow);
+	}
+}
+
+
+
+.red {
+	background: radial-gradient(#f44336, #b71c1c);
+}
+
+.blue {
+	background: radial-gradient(#42a5f5, #1565c0);
+}
+
+.yellow {
+	background: radial-gradient(#fff176, #fbc02d);
+}
+
+.green {
+	background: radial-gradient(#66bb6a, #2e7d32);
+}
+
+
+/*
+.container {
+	min-height: 100vh;
+	align-items: center;
+	margin: auto;
+}
+
+.gameBoard {
+	position: relative;
+	width: 410px;
+	height: 410px;
+	border: 5px solid #434343;
+	background-color: #2e2e2e;
+	padding: 10px;
+	border-radius: 50%;
+	box-shadow: 5px 5px 25px 5px #141414;
+	margin: 2em;
+}
+
+.box {
+	position: absolute;
+	width: 200px;
+	height: 200px;
+	display: inline-block;
+	border: 3px solid #242424;
+	opacity: 0.7;
+	box-shadow: 5px 5px 15px 5px #141414;
+}
+
+.box:hover {
+	cursor: pointer;
+}
+
+.box:active {
+	transform: translate(0, 0.3rem);
+	filter: brightness(150%);
+	box-shadow: none;
+}
+
+.yellow {
+	border-radius: 100% 10% 10% 10%;
+	border-top-left-radius: 100%;
+	top: 10px;
+	left: 10px;
+	background: radial-gradient(#fff176, #fbc02d);
+}
+
+.red {
+	border-radius: 10% 100% 10% 10%;
+	border-top-right-radius: 100%;
+	top: 10px;
+	right: 10px;
+	background: radial-gradient(#f44336, #b71c1c);
+}
+
+.blue {
+	border-radius: 10% 10% 10% 100%;
+	border-bottom-left-radius: 100%;
+	bottom: 10px;
+	left: 10px;
+	background: radial-gradient(#42a5f5, #1565c0);
+}
+
+.green {
+	border-radius: 10% 10% 100% 10%;
+	border-bottom-right-radius: 100%;
+	right: 10px;
+	bottom: 10px;
+	background: radial-gradient(#66bb6a, #2e7d32);
+}
+
+.center {
+	cursor: pointer;
+	position: absolute;
+	width: 150px;
+	height: 150px;
+	background: white;
+	border-radius: 50%;
+	top: 135px;
+	left: 135px;
+	border: 3px solid #424242;
+	background: radial-gradient(#7b7b7b, #282828);
+	text-align: center;
+	align-items: center;
+}
+
+.center:active {
+	transform: translate(0, 0.5em);
+	box-shadow: none;
+	filter: brightness(120%);
+}
+
+.scoreBoard {
+	display: flex;
+	justify-content: space-between;
+	font-size: 2rem;
+	margin-top: 2em;
+}
+
+.score {
+	text-align: right;
+}
+
+.score p {
+	margin: 0;
+}
+.quit {
+	color: var(--clr-red);
+	filter: brightness(70%);
+}
+
+.quit:hover {
+	cursor: pointer;
+	filter: brightness(100%);
+	animation: shake 0.82s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
+	transform: translate3d(0, 0, 0);
+	backface-visibility: hidden;
+	perspective: 1000px;
+}
+
+@keyframes shake {
+	10%,
+	90% {
+		transform: translate3d(-1px, 0, 0);
+	}
+
+	20%,
+	80% {
+		transform: translate3d(2px, 0, 0);
+	}
+
+	30%,
+	50%,
+	70% {
+		transform: translate3d(-4px, 0, 0);
+	}
+
+	40%,
+	60% {
+		transform: translate3d(4px, 0, 0);
+	}
+}
+
+*/

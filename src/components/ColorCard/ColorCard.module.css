@@ -1,0 +1,23 @@
+.colorCard {
+  height: 200px;
+  width: 200px;
+}
+
+.flash {
+}
+
+.red {
+	background: radial-gradient(#f44336, #b71c1c);
+}
+
+.blue {
+	background: radial-gradient(#42a5f5, #1565c0);
+}
+
+.yellow {
+	background: radial-gradient(#fff176, #fbc02d);
+}
+
+.green {
+	background: radial-gradient(#66bb6a, #2e7d32);
+}
