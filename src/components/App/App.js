@@ -1,14 +1,14 @@
 import React, { useEffect } from 'react';
 import { ColorCard } from '../ColorCard/ColorCard';
-import { Timeout } from '../utils/util';
+import { timeout } from '../utils/util';
 
-//import './../../styles/normalize.css';
+import './../../styles/normalize.css';
 import '../../styles/app.css';
 
 export const App = () => {
 	const [hidden, setHidden] = React.useState(undefined);
 	const [isOn, setIsOn] = React.useState(false);
-
+	const [flash, setFlash] = React.useState(undefined);
 	const [score, setScore] = React.useState(0);
 
 	const colorList = ['green', 'red', 'yellow', 'blue'];
@@ -22,8 +22,6 @@ export const App = () => {
 	};
 
 	const [play, setPlay] = React.useState(initPlay);
-// nechápu proc se vytváří useState, nemuže se rovnou pracovat s tim polem initPlay??
-
 	const [flashColor, setFlashColor] = React.useState(undefined);
 
 	const startHandle = () => {
@@ -38,53 +36,40 @@ export const App = () => {
 		}
 	}, [isOn]);
 
-	useEffect(() => {
+	React.useEffect(() => {
 		if (isOn && play.isDisplay) {
 			let newColor = colorList[Math.floor(Math.random() * 4)];
+			//	console.log(newColor)
 
-			initPlay.colors.push(newColor)
-			console.log(initPlay.colors)
-			/*
 			const copyColors = [...play.colors];
 			copyColors.push(newColor);
 			setPlay({ ...play, colors: copyColors });
-			console.log(`copyColors: ${copyColors}`)
-
-			//proc se to duplikuje do copy colors neda to pushnout bez toho abch mela doplicitni pole??
-*/
-
 		}
-	}, [(isOn, play.isDisplay)]);
+	}, [isOn, play.isDisplay]);
 
-	useEffect(() => {
+	React.useEffect(() => {
 		if (isOn && play.isDisplay && play.colors.length) {
 			displayColors();
 		}
 	}, [isOn, play.isDisplay, play.colors.length]);
 
-	// jenom placeholder (ve skutecnosti to bude state)
-	const flash = false;
-
+	/*
 	const onClick = (color) => {
 		console.log(`clicked on ${color} button...`);
 	};
+*/
 
-	
 	async function displayColors() {
-
-		/*
+		await timeout(1000);
 		for (let i = 0; i < play.colors.length; i++) {
 			setFlashColor(play.colors[i]);
-			await Timeout(1000);
-
-			//	setFlashColor('');
-			//	await Timeout (1000);
+			//setFlashColor(true);
+			await timeout(1000);
+		//	setFlashColor('');
+		//	await timeout(1000);
 		}
-
-		*/
-	
 	}
-	
+
 	return (
 		<>
 			{/* section je klasicky html tag a ten sam o sobe nema hidden propu */}
@@ -101,16 +86,8 @@ export const App = () => {
 			</section>
 			<section className="container">
 				<div className="gameBoard">
-					{colorList.map((color,flashColor) => (
-						<ColorCard
-							color={color}
-							flash={flashColor}
-							// todle je taky placeholder, takto to prida jedno skore, kdyz kliknes na jednu barvu
-							// ten druhy onClick je pro console log barvy na kterou jsi klikla
-							onClick={() => setScore((prevScore) => prevScore + 1)}
-							// onClick={() => onClick(color)}
-						/>
-					))}
+					{colorList &&
+						colorList.map((color, flashColor) => <ColorCard flash={flashColor} color={color}></ColorCard>)}
 				</div>
 				{!isOn && !play.score && (
 					<button onClick={startHandle} className="startButton">

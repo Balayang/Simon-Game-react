@@ -1,24 +1,39 @@
 .colorCard {
-  height: 200px;
-  width: 200px;
+	height: 200px;
+	width: 200px;
+	opacity: 0.7;
+	cursor: pointer;
+}
+
+.colorCard:active {
+	transform: translate(0, 0.3rem);
+	filter: brightness(130%);
+	opacity: 1;
 }
 
 .flash {
+	color: black;
+	transform: translate(0, 0.3rem);
+	filter: brightness(130%);
+	opacity: 1;
 }
 
 .red {
 	background: radial-gradient(#f44336, #b71c1c);
+	border-radius: 0 100% 0  0;
 }
 
 .blue {
 	background: radial-gradient(#42a5f5, #1565c0);
+	border-radius: 0 0 100% 0;
 }
 
 .yellow {
 	background: radial-gradient(#fff176, #fbc02d);
+	border-radius: 0 0 0 100%;
 }
 
 .green {
 	background: radial-gradient(#66bb6a, #2e7d32);
+	border-radius: 100% 0  0  0;
 }
-
