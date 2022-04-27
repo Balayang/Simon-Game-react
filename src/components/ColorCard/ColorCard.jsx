@@ -8,6 +8,6 @@ const cx = classNames.bind(styles);
 export const ColorCard = ({ color, flash, onClick }) => (
 	<div
 		onClick={onClick}
-		className={cx(color, flash, 'colorCard')}
+		className={cx(color, flash ? "flash" : "", 'colorCard')}
 	/>
 );

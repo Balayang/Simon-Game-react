@@ -98,7 +98,7 @@ body {
 	margin: auto;
 	position: relative;
 	display: flex;
-	width: 400px;
+	width: 416px;
 	flex-wrap: wrap;
 	border: 5px solid #434343;
 	background-color: #2e2e2e;
@@ -146,9 +146,8 @@ body {
 	filter: brightness(130%);
 }
 
-.flash {
-	color: black;
-	transform: translate(0, 0.3rem);
+.flash.flash {
 	filter: brightness(150%);
 	box-shadow: none;
+	opacity: 1;
 }
